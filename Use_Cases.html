@@ -1,0 +1,98 @@
+import React from 'react';
+
+export default function CompanyAgileLinks() {
+  const companies = [
+    {
+      name: 'Amazon Web Services',
+      logo: 'https://bb.siue.edu/bbcswebdav/pid-4381195-dt-content-rid-74550655_1/xid-74550655_1',
+      url: 'https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-migration-connect/agile-methods.html',
+      color: 'bg-slate-800 hover:bg-slate-700'
+    },
+    {
+      name: 'Netflix',
+      logo: 'https://bb.siue.edu/bbcswebdav/pid-4381195-dt-content-rid-74550655_1/xid-74550655_1',
+      url: 'https://medium.com/@internationalagilefederation/from-late-fees-to-binge-worthy-5790cfe7db75',
+      color: 'bg-red-600 hover:bg-red-500'
+    },
+    {
+      name: 'LEGO',
+      logo: 'https://bb.siue.edu/bbcswebdav/pid-4381195-dt-content-rid-74550655_1/xid-74550655_1',
+      urls: [
+        'https://emeritus.org/blog/case-study-agile-project-management/',
+        'https://medium.com/@internationalagilefederation/building-success-brick-by-brick-9cdbd37b53fe'
+      ],
+      color: 'bg-red-500 hover:bg-red-400'
+    },
+    {
+      name: 'Spotify',
+      logo: 'https://bb.siue.edu/bbcswebdav/pid-4381195-dt-content-rid-74550655_1/xid-74550655_1',
+      url: 'https://bb.siue.edu/bbcswebdav/pid-4381195-dt-content-rid-74550655_1/xid-74550655_1',
+      color: 'bg-green-600 hover:bg-green-500'
+    },
+    {
+      name: 'Microsoft',
+      logo: 'https://bb.siue.edu/bbcswebdav/pid-4381195-dt-content-rid-74550655_1/xid-74550655_1',
+      url: 'https://medium.com/@internationalagilefederation/microsofts-agile-transformation-752ca121c2da',
+      color: 'bg-blue-600 hover:bg-blue-500'
+    },
+    {
+      name: 'John Deere Company',
+      logo: 'https://bb.siue.edu/bbcswebdav/pid-4381195-dt-content-rid-74550655_1/xid-74550655_1',
+      url: 'https://www.scruminc.com/agile-unleashed-scale-john-deere-case-study/',
+      color: 'bg-yellow-600 hover:bg-yellow-500'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-teal-700 to-teal-900 p-8">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold text-white text-center mb-12">
+          Agile Case Studies & Resources
+        </h1>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {companies.map((company, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                  {company.name}
+                </h2>
+                
+                {company.url ? (
+                  <a
+                    href={company.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block w-full ${company.color} text-white font-semibold py-3 px-4 rounded-lg transition text-center`}
+                  >
+                    View Case Study
+                  </a>
+                ) : (
+                  <div className="space-y-2">
+                    {company.urls.map((url, urlIndex) => (
+                      <a
+                        key={urlIndex}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`block w-full ${company.color} text-white font-semibold py-3 px-4 rounded-lg transition text-center`}
+                      >
+                        Case Study {urlIndex + 1}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="mt-12 text-center text-white">
+          <p className="text-sm opacity-80">
+            Click any button to explore how these companies use Agile methodologies
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
